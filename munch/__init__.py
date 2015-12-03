@@ -371,12 +371,12 @@ try:
     Munch.toYAML = toYAML
     Munch.fromYAML = staticmethod(fromYAML)
 
+except ImportError:
+    pass
+
 
 # Backwards compatibility with original library
 
 Bunch = Munch
 bunchify = munchify
 unbunchify = unmunchify
-
-except ImportError:
-    pass
