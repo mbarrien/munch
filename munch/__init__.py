@@ -24,7 +24,8 @@
 __version__ = '2.0.4'
 VERSION = tuple(map(int, __version__.split('.')))
 
-__all__ = ('Munch', 'munchify', 'unmunchify')
+__all__ = ('Munch', 'munchify', 'unmunchify',
+           'Bunch', 'bunchify', 'unbunchify')  # Backwards compatibility names
 
 from .python3_compat import *  # noqa
 
@@ -369,6 +370,13 @@ try:
 
     Munch.toYAML = toYAML
     Munch.fromYAML = staticmethod(fromYAML)
+
+
+# Backwards compatibility with original library
+
+Bunch = Munch
+bunchify = munchify
+unbunchify = unmunchify
 
 except ImportError:
     pass
